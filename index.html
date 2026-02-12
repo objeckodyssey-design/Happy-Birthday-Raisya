@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>Hari Spesial · Raisya</title>
+    <!-- Google Fonts: script elegan + sans modern -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* ===== RESET PREMIUM — MOBILE FIRST, NO HORIZONTAL ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            max-width: 100vw;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            background: #fdeff2; /* fallback soft peach */
+            font-family: 'Inter', sans-serif;
+            color: #4a3b47;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        body {
+            background: radial-gradient(circle at 10% 30%, rgba(255, 236, 224, 0.5) 0%, rgba(255, 239, 230, 0.8) 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: background 2s ease;
+        }
+
+        /* animated gradient background — soft romantic gold & peach */
+        .dynamic-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(145deg, #ffded3, #ffe7db, #ffefdd, #fff2e1);
+            background-size: 300% 300%;
+            animation: subtleGradient 14s ease infinite;
+            z-index: -2;
+            opacity: 0.9;
+        }
+
+        @keyframes subtleGradient {
+            0% { background-position: 0% 30%; }
+            50% { background-position: 100% 70%; }
+            100% { background-position: 0% 30%; }
+        }
+
+        /* glow orbs — soft glass */
+        .glow-orb {
+            position: fixed;
+            width: 70vmax;
+            height: 70vmax;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 40%, rgba(255, 218, 200, 0.45) 0%, rgba(255, 235, 215, 0) 70%);
+            filter: blur(90px);
+            pointer-events: none;
+            z-index: -1;
+            top: -20%;
+            left: -10%;
+        }
+
+        .glow-orb.second {
+            width: 80vmax;
+            height: 80vmax;
+            background: radial-gradient(circle at 70% 60%, rgba(255, 230, 190, 0.35) 0%, rgba(255, 245, 225, 0) 80%);
+            bottom: -30%;
+            right: -20%;
+            top: auto;
+            left: auto;
+        }
+
+        /* container utama — center sempurna */
+        .scene-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 430px;
+            margin: 0 auto;
+            padding: 0 0.75rem;
+            min-height: 100vh;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* setiap scene — full vertical centering */
+        .scene {
+            width: 100%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2.2rem 1.5rem;
+            background: rgba(255, 255, 245, 0.45);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-radius: 48px 48px 48px 12px;
+            box-shadow: 0 20px 40px -8px rgba(140, 90, 80, 0.12), 0 4px 12px rgba(255, 255, 255, 0.6) inset;
+            border: 1px solid rgba(255, 250, 240, 0.6);
+            transition: opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            margin: 1.2rem 0;
+        }
+
+        /* tipografi elegan */
+        h1, h2, .script-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+            font-style: italic;
+            color: #8b5a5a;
+            letter-spacing: 0.5px;
+            text-shadow: 2px 2px 12px rgba(255, 240, 235, 0.9);
+            margin-bottom: 1rem;
+            font-size: 2.2rem;
+            line-height: 1.2;
+        }
+
+        .script-title {
+            font-size: 2.5rem;
+            color: #9e6d6d;
+            margin-bottom: 0.25rem;
+        }
+
+        p {
+            font-size: 1rem;
+            font-weight: 300;
+            color: #5a4e52;
+            margin-bottom: 1.2rem;
+            text-shadow: 0 1px 6px rgba(255, 255, 255, 0.6);
+            line-height: 1.8;
+            letter-spacing: 0.3px;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 250, 0.4);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-radius: 36px;
+            padding: 1.8rem 1.6rem;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            box-shadow: 0 10px 28px -6px rgba(180, 130, 110, 0.12);
+            width: 100%;
+        }
+
+        /* BUTTON ultra premium */
+        .btn {
+            display: inline-block;
+            background: rgba(255, 245, 235, 0.75);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            padding: 1rem 2.6rem;
+            border-radius: 60px;
+            font-size: 1.08rem;
+            font-weight: 450;
+            color: #7c5656;
+            text-decoration: none;
+            letter-spacing: 1.2px;
+            box-shadow: 0 8px 18px rgba(190, 130, 120, 0.12);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            border: none;
+            margin: 0.8rem 0 0.6rem;
+            width: auto;
+            min-width: 220px;
+            border: 0.6px solid rgba(255, 245, 235, 0.9);
+            font-weight: 400;
+            backdrop-filter: blur(16px);
+            line-height: 1.5;
+        }
+
+        .btn:hover {
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 12px 28px rgba(190, 140, 130, 0.2);
+            transform: scale(1.02);
+            border: 1px solid rgba(255, 255, 255, 0.95);
+            color: #6e4a4a;
+        }
+
+        /* PROGRESS halus — sangat subtle */
+        .progress-number {
+            font-size: 0.85rem;
+            padding: 0.35rem 1.4rem;
+            border-radius: 60px;
+            background: rgba(255, 255, 255, 0.35);
+            backdrop-filter: blur(8px);
+            color: #8b6363;
+            font-weight: 350;
+            letter-spacing: 1.5px;
+            border: 0.4px solid rgba(255, 255, 255, 0.55);
+            margin-bottom: 0.5rem;
+            align-self: center;
+        }
+
+        /* CAROUSEL PREMIUM — 5 foto dengan transisi fade */
+        .carousel-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 340px;
+            aspect-ratio: 1 / 1.05;
+            margin: 1.2rem auto 1rem;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 24px 44px -12px rgba(130, 90, 80, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.7);
+            background: #ffe3da;
+        }
+
+        .carousel-slide {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .carousel-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 30%;
+            opacity: 0;
+            transition: opacity 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.98);
+            border-radius: 26px;
+            will-change: opacity;
+            transform: scale(1.01);
+        }
+
+        .carousel-img.active {
+            opacity: 1;
+            z-index: 2;
+            transform: scale(1.02);
+            transition: opacity 1.2s ease, transform 7s cubic-bezier(0.12, 0.75, 0.4, 1);
+        }
+
+        /* subtle zoom on active — sangat soft */
+        .carousel-img.active {
+            animation: softZoom 14s infinite alternate;
+        }
+
+        @keyframes softZoom {
+            0% { transform: scale(1.01); }
+            100% { transform: scale(1.08); }
+        }
+
+        .carousel-caption {
+            margin-top: 0.8rem;
+            font-style: italic;
+            font-weight: 330;
+            background: rgba(255, 255, 250, 0.45);
+            backdrop-filter: blur(12px);
+            padding: 1.2rem 1.4rem;
+            border-radius: 36px;
+            color: #5f4e4e;
+            font-size: 0.98rem;
+            border: 1px solid rgba(255, 255, 255, 0.55);
+            text-align: center;
+            letter-spacing: 0.4px;
+        }
+
+        /* floating hearts — minimal, soft, premium */
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 25;
+            overflow: hidden;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 1rem;
+            opacity: 0.1;
+            color: #ffc2b1;
+            animation: floatUp 24s infinite linear;
+            user-select: none;
+            will-change: transform, opacity;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0.08; }
+            30% { opacity: 0.15; }
+            100% { transform: translateY(-110vh) rotate(12deg); opacity: 0; }
+        }
+
+        /* music button group */
+        .music-btn-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .hidden-btn {
+            display: none;
+        }
+
+        .show-btn {
+            display: inline-block;
+        }
+
+        /* CANVAS CONFETTI — falling petals/hati */
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        /* fade-slide animation */
+        .fade-item {
+            opacity: 0;
+            transform: translateY(16px);
+            animation: fadeSlide 0.7s ease forwards;
+        }
+
+        @keyframes fadeSlide {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .delay-1 { animation-delay: 0.15s; }
+        .delay-2 { animation-delay: 0.3s; }
+        .delay-3 { animation-delay: 0.45s; }
+        .delay-4 { animation-delay: 0.6s; }
+        .delay-5 { animation-delay: 0.75s; }
+
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* spacing sempurna */
+        .spacer {
+            height: 0.5rem;
+        }
+
+        /* tidak ada scroll horizontal */
+        body, html {
+            overflow-x: hidden;
+        }
+
+        /* hide preload */
+        .preload-hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- animated premium gradient background -->
+    <div class="dynamic-bg"></div>
+    <div class="glow-orb"></div>
+    <div class="glow-orb second"></div>
+
+    <!-- floating hearts halus (akan diisi js) -->
+    <div class="floating-hearts" id="heartContainer"></div>
+
+    <!-- canvas untuk confetti final -->
+    <canvas id="confettiCanvas" style="display: none;"></canvas>
+
+    <!-- PRELOAD 5 FOTO (hanya yang dipakai) -->
+    <div style="display: none;">
+        <img src="image1.jpg" alt="pre1">
+        <img src="image2.jpg" alt="pre2">
+        <img src="image3.jpg" alt="pre3">
+        <img src="image4.jpg" alt="pre4">
+        <img src="image5.jpg" alt="pre5">
+    </div>
+
+    <!-- AUDIO MUSIK -->
+    <audio id="bgMusic" src="music.mp3" preload="auto" loop></audio>
+
+    <!-- SEMUA SCENE VIA JS -->
+    <div class="scene-container" id="app"></div>
+
+    <script>
+        (function(){
+            "use strict";
+
+            // ----------------------------------------------------------------
+            // DATA PREMIUM — 5 foto, konten dewasa, elegan, tanpa kenangan fisik
+            // Total 7 scene: pembuka, musik, 3 apresiasi, carousel 5 foto, final
+            // ----------------------------------------------------------------
+            const scenes = [
+                {   // SCENE 1 – Opening dengan script elegan
+                    type: 'opening',
+                    script: 'Hai,',
+                    title: 'Cantik',
+                    paragraphs: [
+                        'Hari ini langit seperti sengaja melukis gradasi lembut, merayakan hadirnya kamu di dunia.',
+                        'Aku hanya ingin bilang: terima kasih sudah menjadi dirimu, seutuhnya.'
+                    ],
+                    button: 'BUKA SAYANG'
+                },
+                {   // SCENE 2 – Musik (tombol putar + lanjut)
+                    type: 'music',
+                    greeting: 'Untuk harimu yang spesial',
+                    lines: [
+                        'Ada satu melodi yang selalu mengingatkanku padamu. Lembut, tenang, seperti caramu berbicara.',
+                        'Putar, dan biarkan iringan ini mengisi ruang hatimu.'
+                    ],
+                    buttonPrimary: 'Putar Lagu 🎵',
+                    buttonSecondary: 'lanjut'
+                },
+                {   // SCENE 3 – Kelembutanmu (tanpa "kita")
+                    type: 'text',
+                    scriptWord: 'Tentang caramu hadir',
+                    paragraphs: [
+                        'Kamu hadir bukan dengan gemuruh, tapi dengan kehangatan yang merambat pelan.',
+                        'Cara kamu peduli—sederhana, tulus—membuat dunia terasa jauh lebih ramah.'
+                    ],
+                    button: 'lanjut'
+                },
+                {   // SCENE 4 – Kekuatan dalam kelembutan
+                    type: 'text',
+                    scriptWord: 'Tentang hatimu',
+                    paragraphs: [
+                        'Kamu itu kuat. Bukan karena tak pernah jatuh, tapi karena kamu bangun dengan caramu sendiri.',
+                        'Aku kagum pada ketenangan yang kamu jaga, meski kadang lelah bersembunyi di balik senyum.'
+                    ],
+                    button: 'lanjut'
+                },
+                {   // SCENE 5 – Pesona yang tidak kamu sadari
+                    type: 'text',
+                    scriptWord: 'Tentang dirimu',
+                    paragraphs: [
+                        'Kamu tidak pernah tahu, bukan? Bahwa senyum kecilmu bisa jadi alasan seseorang bersemangat memulai hari.',
+                        'Tanpa usaha apapun, kamu menginspirasi banyak kebaikan.'
+                    ],
+                    button: 'LANJUT'
+                },
+                {   // SCENE 6 – CAROUSEL 5 FOTO (premium slide)
+                    type: 'carousel',
+                    images: ['image1.jpg', 'image2.jpg', 'image3.jpg', 'image4.jpg', 'image5.jpg'],
+                    captions: [
+                        'Pertama kali aku sadar, senyummu punya caranya sendiri menyinari ruang.',
+                        'Matamu — seperti teduh yang selalu ingin aku pulangi.',
+                        'Tawa kecil yang tidak dibuat-buat, autentik dan hangat.',
+                        'Saat kamu diam, ada banyak cerita yang tidak perlu kata.',
+                        'Potret ini: semuanya tentang ketulusan yang jarang dimiliki banyak orang.'
+                    ],
+                    button: 'satu pesan terakhir'
+                },
+                {   // SCENE 7 – FINAL ELEGI
+                    type: 'final',
+                    title: 'Selamat Ulang Tahun,',
+                    name: 'Cantikku.',
+                    paragraphs: [
+                        'Kamu lahir, dan dunia mendapat warna baru yang tidak pernah diminta—tapi sangat dinantikan.',
+                        'Terima kasih sudah memilih untuk ada, merayakan kehidupan dengan caramu yang lembut.',
+                        'Aku hanya ingin kamu tahu: seseorang di sini selalu mendoakan hal-hal indah untukmu.'
+                    ],
+                    button: 'KLIK'
+                }
+            ];
+
+            // STATE
+            let currentScene = 0;
+            const audio = document.getElementById('bgMusic');
+            audio.volume = 0.28; // lembut
+
+            const app = document.getElementById('app');
+            const heartContainer = document.getElementById('heartContainer');
+            let carouselInterval = null;
+
+            // floating hearts (20 butir, sangat soft)
+            function createSubtleHearts() {
+                for (let i=0; i<18; i++) {
+                    const h = document.createElement('div');
+                    h.className = 'heart';
+                    h.innerHTML = '🤍';
+                    h.style.left = Math.random() * 100 + '%';
+                    h.style.top = Math.random() * 100 + '%';
+                    h.style.animationDelay = Math.random() * 12 + 's';
+                    h.style.animationDuration = 16 + Math.random() * 16 + 's';
+                    h.style.fontSize = (0.6 + Math.random() * 1.4) + 'rem';
+                    h.style.opacity = 0.05 + Math.random() * 0.08;
+                    heartContainer.appendChild(h);
+                }
+            }
+            createSubtleHearts();
+
+            // progress indicator minimal
+            function renderProgress(idx) {
+                const total = scenes.length;
+                const span = document.createElement('span');
+                span.className = 'progress-number fade-item';
+                span.innerText = `0${idx+1}/${total} ✦`;
+                return span;
+            }
+
+            // ---------- RENDER SCENE ----------
+            function renderScene(index) {
+                if (carouselInterval) clearInterval(carouselInterval);
+                app.innerHTML = '';
+                const scene = scenes[index];
+                const sceneDiv = document.createElement('section');
+                sceneDiv.className = 'scene';
+
+                // progress
+                const prog = renderProgress(index);
+                sceneDiv.appendChild(prog);
+
+                // wrapper isi
+                const wrap = document.createElement('div');
+                wrap.style.width = '100%';
+                wrap.style.display = 'flex';
+                wrap.style.flexDirection = 'column';
+                wrap.style.alignItems = 'center';
+
+                // ---------- SCENE TYPE: OPENING ----------
+                if (scene.type === 'opening') {
+                    const h1 = document.createElement('h1');
+                    h1.className = 'script-title fade-item';
+                    h1.innerText = scene.script;
+                    wrap.appendChild(h1);
+                    const h2 = document.createElement('h2');
+                    h2.style.fontSize = '2.3rem';
+                    h2.style.marginTop = '-0.2rem';
+                    h2.className = 'script-title fade-item delay-1';
+                    h2.innerText = scene.title;
+                    wrap.appendChild(h2);
+                    scene.paragraphs.forEach((txt,i) => {
+                        const p = document.createElement('p');
+                        p.className = `fade-item delay-${i+2}`;
+                        p.innerText = txt;
+                        wrap.appendChild(p);
+                    });
+                    const btn = document.createElement('button');
+                    btn.className = 'btn fade-item delay-4';
+                    btn.innerText = scene.button;
+                    btn.addEventListener('click', nextScene);
+                    wrap.appendChild(btn);
+                }
+
+                // ---------- SCENE MUSIC ----------
+                if (scene.type === 'music') {
+                    const h2 = document.createElement('h2');
+                    h2.className = 'script-title fade-item';
+                    h2.style.fontSize = '1.9rem';
+                    h2.innerText = scene.greeting;
+                    wrap.appendChild(h2);
+                    scene.lines.forEach((txt,i) => {
+                        const p = document.createElement('p');
+                        p.className = `fade-item delay-${i+1}`;
+                        p.innerText = txt;
+                        wrap.appendChild(p);
+                    });
+                    const musicBtn = document.createElement('button');
+                    musicBtn.id = 'playMusicBtn';
+                    musicBtn.className = 'btn fade-item delay-2';
+                    musicBtn.innerText = scene.buttonPrimary;
+                    musicBtn.addEventListener('click', function(e) {
+                        audio.play().catch(e=>{});
+                        audio.volume = 0.3;
+                        document.getElementById('secondBtn').classList.add('show-btn');
+                        musicBtn.style.opacity = '0.9';
+                    });
+                    wrap.appendChild(musicBtn);
+                    const secondBtn = document.createElement('button');
+                    secondBtn.id = 'secondBtn';
+                    secondBtn.className = 'btn hidden-btn fade-item';
+                    secondBtn.innerText = scene.buttonSecondary;
+                    secondBtn.addEventListener('click', nextScene);
+                    wrap.appendChild(secondBtn);
+                }
+
+                // ---------- SCENE TEKS (tentang dia) ----------
+                if (scene.type === 'text') {
+                    const script = document.createElement('h2');
+                    script.className = 'script-title fade-item';
+                    script.style.fontSize = '1.9rem';
+                    script.innerText = scene.scriptWord;
+                    wrap.appendChild(script);
+                    scene.paragraphs.forEach((txt,i) => {
+                        const p = document.createElement('p');
+                        p.className = `fade-item delay-${i+1}`;
+                        p.innerText = txt;
+                        wrap.appendChild(p);
+                    });
+                    const btn = document.createElement('button');
+                    btn.className = 'btn fade-item delay-3';
+                    btn.innerText = scene.button;
+                    btn.addEventListener('click', nextScene);
+                    wrap.appendChild(btn);
+                }
+
+                // ---------- SCENE CAROUSEL 5 FOTO (PREMIUM) ----------
+                if (scene.type === 'carousel') {
+                    const carouselDiv = document.createElement('div');
+                    carouselDiv.className = 'carousel-wrapper fade-item';
+
+                    const slideContainer = document.createElement('div');
+                    slideContainer.className = 'carousel-slide';
+
+                    // buat 5 img element
+                    scene.images.forEach((src, idx) => {
+                        const img = document.createElement('img');
+                        img.className = 'carousel-img';
+                        if (idx === 0) img.classList.add('active');
+                        img.src = src;
+                        img.alt = `potret ${idx+1}`;
+                        slideContainer.appendChild(img);
+                    });
+
+                    carouselDiv.appendChild(slideContainer);
+                    wrap.appendChild(carouselDiv);
+
+                    // caption
+                    const captionDiv = document.createElement('div');
+                    captionDiv.className = 'carousel-caption fade-item delay-2';
+                    captionDiv.id = 'carouselCaption';
+                    captionDiv.innerText = scene.captions[0];
+                    wrap.appendChild(captionDiv);
+
+                    // auto slide tiap 5 detik
+                    let currentImgIdx = 0;
+                    const imgs = slideContainer.querySelectorAll('.carousel-img');
+                    const totalImgs = imgs.length;
+
+                    function showImage(idx) {
+                        imgs.forEach((img, i) => {
+                            img.classList.toggle('active', i === idx);
+                        });
+                        captionDiv.innerText = scene.captions[idx];
+                    }
+
+                    carouselInterval = setInterval(() => {
+                        currentImgIdx = (currentImgIdx + 1) % totalImgs;
+                        showImage(currentImgIdx);
+                    }, 4800);
+
+                    // tombol lanjut
+                    const btn = document.createElement('button');
+                    btn.className = 'btn fade-item delay-4';
+                    btn.innerText = scene.button;
+                    btn.addEventListener('click', function() {
+                        clearInterval(carouselInterval);
+                        nextScene();
+                    });
+                    wrap.appendChild(btn);
+                }
+
+                // ---------- SCENE FINAL ----------
+                if (scene.type === 'final') {
+                    // tambah sedikit floating hearts
+                    for (let i=0;i<6;i++) {
+                        const h = document.createElement('div');
+                        h.className = 'heart';
+                        h.innerHTML = '🤍';
+                        h.style.left = Math.random()*100+'%';
+                        h.style.top = '80%';
+                        h.style.animationDuration = 12+Math.random()*10+'s';
+                        h.style.opacity = 0.12;
+                        heartContainer.appendChild(h);
+                    }
+                    const title1 = document.createElement('h1');
+                    title1.className = 'script-title fade-item';
+                    title1.style.fontSize = '2rem';
+                    title1.innerText = scene.title;
+                    wrap.appendChild(title1);
+                    const title2 = document.createElement('h2');
+                    title2.className = 'script-title fade-item delay-1';
+                    title2.style.fontSize = '2.3rem';
+                    title2.style.color = '#a56868';
+                    title2.innerText = scene.name;
+                    wrap.appendChild(title2);
+                    scene.paragraphs.forEach((txt,i) => {
+                        const p = document.createElement('p');
+                        p.className = `fade-item delay-${i+2}`;
+                        p.innerText = txt;
+                        wrap.appendChild(p);
+                    });
+                    const finalBtn = document.createElement('button');
+                    finalBtn.className = 'btn fade-item delay-5';
+                    finalBtn.innerText = scene.button;
+                    finalBtn.addEventListener('click', function() {
+                        startPremiumConfetti();
+                        audio.volume = 0.4;
+                    });
+                    wrap.appendChild(finalBtn);
+                }
+
+                sceneDiv.appendChild(wrap);
+                app.appendChild(sceneDiv);
+                window.scrollTo(0,0);
+            }
+
+            // confetti / falling hearts premium
+            function startPremiumConfetti() {
+                const canvas = document.getElementById('confettiCanvas');
+                canvas.style.display = 'block';
+                const ctx = canvas.getContext('2d');
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+                const particles = [];
+                for (let i=0; i<52; i++) {
+                    particles.push({
+                        x: Math.random() * canvas.width,
+                        y: Math.random() * canvas.height * 0.1,
+                        size: 12 + Math.random() * 18,
+                        speedY: 1.2 + Math.random() * 2.8,
+                        speedX: -0.2 + Math.random() * 0.4,
+                        color: `rgba(255, 215, 205, ${0.5+Math.random()*0.3})`,
+                        shape: Math.random() > 0.5 ? '🤍' : '🌸'
+                    });
+                }
+                function draw() {
+                    ctx.clearRect(0,0,canvas.width,canvas.height);
+                    ctx.font = '24px "Inter", sans-serif';
+                    for (let p of particles) {
+                        ctx.fillStyle = p.color;
+                        ctx.font = `${p.size}px "Inter", "Playfair Display", sans-serif`;
+                        ctx.fillText(p.shape, p.x, p.y);
+                        p.y += p.speedY;
+                        p.x += p.speedX;
+                        if (p.y > canvas.height) {
+                            p.y = 0;
+                            p.x = Math.random() * canvas.width;
+                        }
+                    }
+                    requestAnimationFrame(draw);
+                }
+                draw();
+                setTimeout(() => { canvas.style.display = 'none'; }, 8000);
+            }
+
+            function nextScene() {
+                if (currentScene < scenes.length - 1) {
+                    currentScene++;
+                    renderScene(currentScene);
+                }
+            }
+
+            // inisialisasi scene 0
+            renderScene(0);
+        })();
+    </script>
+
+    <!-- memastikan tidak ada broken style -->
+    <style>
+        .hidden-btn { display: none; }
+        .show-btn { display: inline-block !important; }
+        .btn:active { transform: scale(0.98); }
+        a, button { outline: none; }
+        .scene { transition: opacity 0.5s; }
+    </style>
+</body>
+</html>
